@@ -20,341 +20,262 @@ export const examplePages = {
 };
 
 export const appPages = {
-personsAppPages: {
-	id: 'educationalApp',
-	to: '/educacion',
-	text: 'Red Educacional',
-	icon: 'HeroAcademicCap',
-	subPages: {
-		dashboardPage: {
-			id: 'dashboardPage',
-			to: '/educacion/dashboard',
-			text: 'Panel General',
-			icon: 'HeroHomeModern',
-		},
-		docentesPage: {
-			id: 'docentesPage',
-			to: '/educacion/docentes',
-			text: 'Docentes',
-			icon: 'HeroUserGroup',
-			subPages: {
-				planificacion: {
-					id: 'planificacion',
-					to: '/educacion/docentes/planificacion',
-					text: 'Planificación',
-					icon: 'HeroClipboardDocumentList',
-				},
-				notas: {
-					id: 'notas',
-					to: '/educacion/docentes/notas',
-					text: 'Registro de Notas',
-					icon: 'HeroPencilSquare',
-				},
-				asistencia: {
-					id: 'asistencia',
-					to: '/educacion/docentes/asistencia',
-					text: 'Asistencia',
-					icon: 'HeroCheckCircle',
-				},
-			},
-		},
-		apoderadosPage: {
-			id: 'apoderadosPage',
-			to: '/educacion/apoderados',
-			text: 'Apoderados',
-			icon: 'HeroUser',
-			subPages: {
-				informacionEstudiantil: {
-					id: 'informacionEstudiantil',
-					to: '/educacion/apoderados/estudiantes',
-					text: 'Información del Estudiante',
-					icon: 'HeroIdentification',
-				},
-				citaciones: {
-					id: 'citaciones',
-					to: '/educacion/apoderados/citaciones',
-					text: 'Citaciones',
-					icon: 'HeroBellAlert',
-				},
-				comunicaciones: {
-					id: 'comunicaciones',
-					to: '/educacion/apoderados/comunicaciones',
-					text: 'Comunicaciones',
-					icon: 'HeroEnvelopeOpen',
-				},
-			},
-		},
-		asistentesPage: {
-			id: 'asistentesPage',
-			to: '/educacion/asistentes',
-			text: 'Asistentes de la Educación',
-			icon: 'HeroBriefcase',
-			subPages: {
-				tareas: {
-					id: 'tareasAsistentes',
-					to: '/educacion/asistentes/tareas',
-					text: 'Tareas Asignadas',
-					icon: 'HeroClipboard',
-				},
-				observaciones: {
-					id: 'observacionesAsistentes',
-					to: '/educacion/asistentes/observaciones',
-					text: 'Observaciones',
-					icon: 'HeroEye',
-				},
-			},
-		},
-		administracionPage: {
-			id: 'administracionPage',
-			to: '/educacion/admin',
-			text: 'Administración',
-			icon: 'HeroCog6Tooth',
-			subPages: {
-				usuarios: {
-					id: 'gestionUsuarios',
-					to: '/educacion/admin/usuarios',
-					text: 'Gestión de Usuarios',
-					icon: 'HeroUsers',
-				},
-				configuracion: {
-					id: 'configuracionSistema',
-					to: '/educacion/admin/configuracion',
-					text: 'Configuración',
-					icon: 'HeroAdjustmentsHorizontal',
-				},
-			},
-		},
-	},
-},
+  dashboard: {
+    id: 'dashboardApp',
+    to: '/dashboard',
+    text: 'Dashboard',
+    icon: 'HeroHome',
+  },
 
-	// aiAppPages: {
-	// 	id: 'aiApp',
-	// 	to: '/ai',
-	// 	text: 'AI',
-	// 	icon: 'HeroRocketLaunch',
-	// 	subPages: {
-	// 		aiDashboardPage: {
-	// 			id: 'aiDashboardPage',
-	// 			to: '/ai/dashboard',
-	// 			text: 'AI Dashboard',
-	// 			icon: 'HeroRocketLaunch',
-	// 		},
-	// 		chatPages: {
-	// 			id: 'customerPage',
-	// 			to: '/ai/chat',
-	// 			text: 'Chat Pages',
-	// 			icon: 'HeroChatBubbleLeft',
-	// 			subPages: {
-	// 				photoPage: {
-	// 					id: 'photoPage',
-	// 					to: '/ai/chat/photo',
-	// 					text: 'Photo Editing',
-	// 					icon: 'HeroPhoto',
-	// 				},
-	// 				videoPage: {
-	// 					id: 'videoPage',
-	// 					to: '/ai/chat/video',
-	// 					text: 'Video Generation',
-	// 					icon: 'HeroFilm',
-	// 				},
-	// 				audioPage: {
-	// 					id: 'audioPage',
-	// 					to: '/ai/chat/audio',
-	// 					text: 'Audio Generation',
-	// 					icon: 'HeroMusicalNote',
-	// 				},
-	// 				codePage: {
-	// 					id: 'audioPage',
-	// 					to: '/ai/chat/code',
-	// 					text: 'Code Generation',
-	// 					icon: 'HeroCommandLine',
-	// 				},
-	// 			},
-	// 		},
-	// 	},
-	// },
-	// salesAppPages: {
-	// 	id: 'salesApp',
-	// 	to: '/sales',
-	// 	text: 'Sales',
-	// 	icon: 'HeroBanknotes',
-	// 	subPages: {
-	// 		salesDashboardPage: {
-	// 			id: 'salesDashboardPage',
-	// 			to: '/',
-	// 			text: 'Sales Dashboard',
-	// 			icon: 'HeroRectangleGroup',
-	// 		},
-	// 		productPage: {
-	// 			id: 'productPage',
-	// 			to: '/sales/product',
-	// 			text: 'Products',
-	// 			icon: 'HeroRectangleStack',
-	// 			subPages: {
-	// 				listPage: {
-	// 					id: 'productsListPage',
-	// 					to: '/sales/product/list',
-	// 					text: 'Products List',
-	// 					icon: 'HeroQueueList',
-	// 				},
-	// 				editPage: {
-	// 					id: 'productPage',
-	// 					to: `/sales/product/${productsDb[0].id}`,
-	// 					text: `Product #${productsDb[0].id}`,
-	// 					icon: 'HeroTicket',
-	// 				},
-	// 				editPageLink: {
-	// 					id: 'editPageLink',
-	// 					to: '/sales/product',
-	// 				},
-	// 			},
-	// 		},
-	// 		categoryPage: {
-	// 			id: 'categoryPage',
-	// 			to: '/sales/category',
-	// 			text: 'Category',
-	// 			icon: 'HeroSquare2Stack',
-	// 			subPages: {
-	// 				listPage: {
-	// 					id: 'categoryListPage',
-	// 					to: '/sales/category/list',
-	// 					text: 'Category List',
-	// 					icon: 'HeroQueueList',
-	// 				},
-	// 				editPage: {
-	// 					id: 'productPage',
-	// 					to: `/sales/category/${categoriesDb[0].id}`,
-	// 					text: `Category #${categoriesDb[0].id}`,
-	// 					icon: 'HeroStop',
-	// 				},
-	// 				editPageLink: {
-	// 					id: 'editPageLink',
-	// 					to: '/sales/category',
-	// 				},
-	// 			},
-	// 		},
-	// 	},
-	// },
-	// crmAppPages: {
-	// 	id: 'crmApp',
-	// 	to: '/crm',
-	// 	text: 'CRM',
-	// 	icon: 'HeroUserGroup',
-	// 	subPages: {
-	// 		crmDashboardPage: {
-	// 			id: 'crmDashboardPage',
-	// 			to: '/crm/dashboard',
-	// 			text: 'CRM Dashboard',
-	// 			icon: 'HeroUserCircle',
-	// 		},
-	// 		customerPage: {
-	// 			id: 'customerPage',
-	// 			to: '/crm/customer',
-	// 			text: 'Customers',
-	// 			icon: 'HeroUserGroup',
-	// 			subPages: {
-	// 				listPage: {
-	// 					id: 'crmListPage',
-	// 					to: '/crm/customer/list',
-	// 					text: 'Customers List',
-	// 					icon: 'HeroQueueList',
-	// 				},
-	// 				editPage: {
-	// 					id: 'customerPage',
-	// 					to: `/crm/customer/${usersDb[0].id}`,
-	// 					text: `Customer @${usersDb[0].id}`,
-	// 					icon: 'HeroUser',
-	// 				},
-	// 				editPageLink: {
-	// 					id: 'editPageLink',
-	// 					to: '/crm/customer',
-	// 				},
-	// 			},
-	// 		},
-	// 		rolePage: {
-	// 			id: 'rolePage',
-	// 			to: '/crm/role',
-	// 			text: 'Roles',
-	// 			icon: 'HeroShieldCheck',
-	// 			subPages: {
-	// 				listPage: {
-	// 					id: 'crmListPage',
-	// 					to: '/crm/role/list',
-	// 					text: 'Role List',
-	// 					icon: 'HeroQueueList',
-	// 				},
-	// 				editPage: {
-	// 					id: 'customerPage',
-	// 					to: `/crm/role/${rolesDb[0].id}`,
-	// 					text: `Role @${rolesDb[0].id}`,
-	// 					icon: 'HeroShieldExclamation',
-	// 				},
-	// 				editPageLink: {
-	// 					id: 'editPageLink',
-	// 					to: '/crm/role',
-	// 				},
-	// 			},
-	// 		},
-	// 	},
-	// },
-	// projectAppPages: {
-	// 	id: 'projectApp',
-	// 	to: '/project',
-	// 	text: 'Project',
-	// 	icon: 'HeroClipboardDocumentCheck',
-	// 	subPages: {
-	// 		projectDashboardPage: {
-	// 			id: 'projectDashboardPage',
-	// 			to: '/project/dashboard',
-	// 			text: 'Projects Dashboard',
-	// 			icon: 'HeroClipboardDocumentCheck',
-	// 		},
-	// 		projectBoardPage: {
-	// 			id: 'projectBoardPage',
-	// 			to: `/project/board/${projectsDb[0].id}`,
-	// 			text: `Board ${projectsDb[0].name}`,
-	// 			icon: 'HeroQrCode',
-	// 		},
-	// 		projectBoardPageLink: {
-	// 			id: 'projectBoardPageLink',
-	// 			to: '/project/board',
-	// 		},
-	// 	},
-	// },
-	// educationAppPages: {
-	// 	id: 'educationApp',
-	// 	to: '/education',
-	// 	text: 'Education',
-	// 	icon: 'HeroBookOpen',
-	// 	subPages: {},
-	// },
-	// reservationAppPages: {
-	// 	id: 'reservationApp',
-	// 	to: '/reservation',
-	// 	text: 'Reservation',
-	// 	icon: 'HeroCalendarDays',
-	// 	subPages: {},
-	// },
-	// mailAppPages: {
-	// 	id: 'mailApp',
-	// 	to: '/mail',
-	// 	text: 'Mail',
-	// 	icon: 'HeroEnvelope',
-	// 	subPages: {
-	// 		inboxPages: {
-	// 			id: 'inboxPages',
-	// 			to: '/mail/inbox',
-	// 			text: 'Inbox',
-	// 			icon: 'HeroEnvelope',
-	// 		},
-	// 	},
-	// },
-	// chatAppPages: {
-	// 	id: 'chatApp',
-	// 	to: '/chat',
-	// 	text: 'Chat',
-	// 	icon: 'HeroChatBubbleLeftRight',
-	// },
+  docentesAppPages: {
+    id: 'docentesApp',
+    to: '/educacion/docentes',
+    text: 'Docentes',
+    icon: 'HeroUserGroup',
+    subPages: {
+      planificacion: {
+        id: 'planificacion',
+        to: '/educacion/docentes/planificacion',
+        text: 'Planificación',
+        icon: 'HeroClipboardDocumentList',
+      },
+      notas: {
+        id: 'notas',
+        to: '/educacion/docentes/notas',
+        text: 'Registro de Notas',
+        icon: 'HeroPencilSquare',
+      },
+      clases: {
+        id: 'clases',
+        to: '/educacion/docentes/clases',
+        text: 'Mis Clases',
+        icon: 'HeroClock',
+        subPages: {
+          detalleClase: {
+            id: 'detalleClase',
+            to: '/educacion/docentes/clases/:classSessionId',
+            text: 'Detalle Clase',
+            icon: 'HeroDocumentMagnifyingGlass',
+          }
+        },
+      },
+    },
+  },
+
+  apoderadosAppPages: {
+    id: 'apoderadosApp',
+    to: '/educacion/apoderados',
+    text: 'Apoderados',
+    icon: 'HeroUser',
+    subPages: {
+      informacionEstudiantil: {
+        id: 'informacionEstudiantil',
+        to: '/educacion/apoderados/estudiantes',
+        text: 'Información del Estudiante',
+        icon: 'HeroIdentification',
+      },
+      detalleEstudiante: {
+        id: 'detalleEstudiante',
+        to: '/educacion/apoderados/estudiantes/:studentId',
+        text: 'Detalle del Estudiante',
+        icon: 'HeroDocumentSearch',
+      },
+      citaciones: {
+        id: 'citaciones',
+        to: '/educacion/apoderados/citaciones',
+        text: 'Citaciones',
+        icon: 'HeroBellAlert',
+      },
+      comunicaciones: {
+        id: 'comunicaciones',
+        to: '/educacion/apoderados/comunicaciones',
+        text: 'Comunicaciones',
+        icon: 'HeroEnvelopeOpen',
+      },
+    },
+  },
+
+  asistentesAppPages: {
+    id: 'asistentesApp',
+    to: '/educacion/asistentes',
+    text: 'Asistentes de la Educación',
+    icon: 'HeroBriefcase',
+    subPages: {
+      tareas: {
+        id: 'tareasAsistentes',
+        to: '/educacion/asistentes/tareas',
+        text: 'Tareas Asignadas',
+        icon: 'HeroClipboard',
+      },
+      observaciones: {
+        id: 'observacionesAsistentes',
+        to: '/educacion/asistentes/observaciones',
+        text: 'Observaciones',
+        icon: 'HeroEye',
+      },
+    },
+  },
+
+  administracionAppPages: {
+    id: 'administracionApp',
+    to: '/educacion/admin',
+    text: 'Administración',
+    icon: 'HeroCog6Tooth',
+    subPages: {
+      usuarios: {
+        id: 'gestionUsuarios',
+        to: '/educacion/admin/usuarios',
+        text: 'Gestión de Usuarios',
+        icon: 'HeroUsers',
+      },
+      detalleUsuario: {
+        id: 'detalleUsuario',
+        to: '/educacion/admin/usuarios/:userId',
+        text: 'Detalle Usuario',
+        icon: 'HeroUserCircle',
+      },
+      configuracion: {
+        id: 'configuracionSistema',
+        to: '/educacion/admin/configuracion',
+        text: 'Configuración',
+        icon: 'HeroAdjustmentsHorizontal',
+      },
+    },
+  },
+
+  academicAppPages: {
+    id: 'academicApp',
+    to: '/academico',
+    text: 'Gestión Académica',
+    icon: 'HeroBookOpen',
+    subPages: {
+      subjectsPage: {
+        id: 'subjectsPage',
+        to: '/academico/asignaturas',
+        text: 'Asignaturas',
+        icon: 'HeroBookmarkSquare',
+      },
+      coursesPage: {
+        id: 'coursesPage',
+        to: '/academico/cursos',
+        text: 'Cursos',
+        icon: 'HeroBuildingLibrary',
+      },
+      detalleCurso: {
+        id: 'detalleCurso',
+        to: '/academico/cursos/:courseId',
+        text: 'Detalle del Curso',
+        icon: 'HeroDocumentText',
+      },
+      levelsPage: {
+        id: 'levelsPage',
+        to: '/academico/niveles',
+        text: 'Niveles Educativos',
+        icon: 'HeroBars3BottomLeft',
+      },
+      gradesPage: {
+        id: 'gradesPage',
+        to: '/academico/evaluaciones',
+        text: 'Evaluaciones y Calificaciones',
+        icon: 'HeroChartBarSquare',
+      },
+      schedulePage: {
+        id: 'schedulePage',
+        to: '/academico/horarios',
+        text: 'Horarios',
+        icon: 'HeroCalendarDays',
+      },
+      subjectAssignmentPage: {
+        id: 'subjectAssignmentPage',
+        to: '/academico/asignacion',
+        text: 'Asignación de Docentes',
+        icon: 'HeroUserPlus',
+      },
+    },
+  },
+
+  administrativeAppPages: {
+    id: 'administrativeApp',
+    to: '/administracion',
+    text: 'Gestión Administrativa',
+    icon: 'HeroClipboardDocument',
+    subPages: {
+      usersPage: {
+        id: 'usersPage',
+        to: '/administracion/usuarios',
+        text: 'Usuarios del Sistema',
+        icon: 'HeroUsers',
+      },
+      studentsPage: {
+        id: 'studentsPage',
+        to: '/administracion/estudiantes',
+        text: 'Estudiantes',
+        icon: 'HeroUserCircle',
+      },
+      studentDetail: {
+        id: 'studentDetail',
+        to: '/administracion/estudiantes/:studentId',
+        text: 'Detalle Estudiante',
+        icon: 'HeroDocumentText',
+      },
+      guardiansPage: {
+        id: 'guardiansPage',
+        to: '/administracion/apoderados',
+        text: 'Apoderados',
+        icon: 'HeroUserGroup',
+      },
+      staffPage: {
+        id: 'staffPage',
+        to: '/administracion/personal',
+        text: 'Personal del Establecimiento',
+        icon: 'HeroBriefcase',
+        subPages: {
+          teachers: {
+            id: 'teachers',
+            to: '/administracion/personal/docentes',
+            text: 'Docentes',
+            icon: 'HeroAcademicCap',
+          },
+          assistants: {
+            id: 'assistants',
+            to: '/administracion/personal/asistentes',
+            text: 'Asistentes de la Educación',
+            icon: 'HeroUser',
+          },
+          admins: {
+            id: 'admins',
+            to: '/administracion/personal/administrativos',
+            text: 'Administrativos',
+            icon: 'HeroCog6Tooth',
+          },
+        },
+      },
+      institucionPage: {
+        id: 'institucionPage',
+        to: '/administracion/establecimiento',
+        text: 'Datos del Establecimiento',
+        icon: 'HeroBuildingOffice2',
+      },
+      piePage: {
+        id: 'piePage',
+        to: '/administracion/pie',
+        text: 'Programa de Integración (PIE)',
+        icon: 'HeroPuzzlePiece',
+      },
+      communicationPage: {
+        id: 'communicationPage',
+        to: '/administracion/comunicaciones',
+        text: 'Comunicaciones Institucionales',
+        icon: 'HeroEnvelope',
+      },
+      attendancePage: {
+        id: 'attendancePage',
+        to: '/administracion/asistencia',
+        text: 'Control de Asistencia',
+        icon: 'HeroCalendarCheck',
+      },
+    },
+  },
 };
 
 export const componentsPages = {
@@ -583,6 +504,15 @@ export const componentsPages = {
 	// 	},
 	// },
 };
+
+export const userPages = {
+	profilePage: {
+		id: 'perfilPage',
+		to: '/:id/perfil',
+		text: 'Perfil',
+		icon: 'HeroUser',
+	},
+}
 
 export const authPages = {
 	loginPage: {

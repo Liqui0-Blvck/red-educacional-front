@@ -41,7 +41,7 @@ const themeConfig: TThemeConfigs = {
 	projectTitle: 'Fyr',
 	projectName: 'React TypeScript Tailwind Admin & AI Chat Template',
 	language: 'en',
-	theme: DARK_MODE.SYSTEM,
+	theme: DARK_MODE.LIGHT,
 	themeColor: 'blue',
 	themeColorShade: '500',
 	rounded: 'rounded-lg',

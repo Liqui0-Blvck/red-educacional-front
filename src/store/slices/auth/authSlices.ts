@@ -103,7 +103,7 @@ export const onLogin = createAsyncThunk(
         toast.success('Inicio sesión correcto', {
           autoClose: 300,
           onClose: () => {
-            navigate('/sign-up', { replace: true })
+            navigate('/dashboard', { replace: true })
           }
         });
       } 

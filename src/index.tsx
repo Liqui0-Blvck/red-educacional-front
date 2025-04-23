@@ -15,6 +15,10 @@ import 'react-date-range/dist/theme/default.css';
 import './styles/vendors.css';
 import { Provider } from 'react-redux';
 import store from './store/store';
+import { ToastContainer } from 'react-toastify';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
@@ -22,8 +26,11 @@ root.render(
 		<Provider store={store}>
 			<ThemeContextProvider>
 				<BrowserRouter>
-					<AuthProvider>
-						<App />
+					<AuthProvider>	
+						<ToastContainer />
+						<QueryClientProvider client={queryClient}>
+							<App />
+						</QueryClientProvider>
 					</AuthProvider>
 				</BrowserRouter>
 			</ThemeContextProvider>

@@ -6,9 +6,9 @@ import SearchPartial from './_partial/Search.partial';
 const DefaultHeaderTemplate = () => {
 	return (
 		<Header>
-			<HeaderLeft>
+			{/* <HeaderLeft>
 				<SearchPartial />
-			</HeaderLeft>
+			</HeaderLeft> */}
 			<HeaderRight>
 				<DefaultHeaderRightCommon />
 			</HeaderRight>

@@ -7,6 +7,15 @@ import SignUpPage from '../pages/Auth/SignUp.page';
 import PasswordReset from '../pages/PasswordReset.page';
 import ConfirmPages from '../pages/Confirm.page';
 
+
+const DashboardPage = lazy(() => import('../pages/Dashboard'));
+
+
+
+// Academic PAGES
+const CoursesList = lazy(() => import('../pages/academic/course/CourseList'))
+const SubjectsTable = lazy(() => import('../pages/academic/subject/SubjectTable'))
+
 /**
  * UI
  */
@@ -158,11 +167,19 @@ const ChatPage = lazy(() => import('../pages/ChatPage/Chat.page'));
 const UnderConstructionPage = lazy(() => import('../pages/UnderConstruction.page'));
 
 const contentRoutes: RouteProps[] = [
+
+	/** ACADEMIC URLS **/
+	{ path: appPages.academicAppPages.subPages.coursesPage.to, element: <CoursesList /> },
+	{ path: appPages.academicAppPages.subPages.subjectsPage.to, element: <SubjectsTable /> },
+
+
+
 	
 	/**
 	 * ICONS::BEGIN
 	 */
 
+	{ path: appPages.dashboard.to, element: <DashboardPage /> },
 
 	// { path: appPages.dashboard.to, element: <DashboardPage /> },
 	{ path: authPages.loginPage.to, element: <LoginPage /> },

@@ -1,9 +1,11 @@
 // rootReducer.ts
 import { combineReducers, Reducer, AnyAction } from 'redux';
 import auth, { AuthState } from './slices/auth';
+import course, { CourseState } from './slices/academic/courseSlice'
 
 export type RootState = {
-  auth: AuthState
+  auth: AuthState,
+  course: CourseState
 };
 
 export interface AsyncReducers {
@@ -12,6 +14,7 @@ export interface AsyncReducers {
 
 const staticReducers = {
   auth,
+  course
 };
 
 const rootReducer = (asyncReducers?: AsyncReducers) => (

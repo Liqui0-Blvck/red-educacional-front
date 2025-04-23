@@ -13,7 +13,6 @@ import { useAppDispatch } from '../../store/hook';
 import { onLogin } from '../../store/slices/auth/authSlices';
 import { authPages } from '../../config/pages.config';
 import {useKeyPress} from 'react-use';
-import { use } from 'i18next';
 
 
 
@@ -27,9 +26,6 @@ const LoginPage = () => {
 	const navigate = useNavigate()
 	const [passwordShowStatus, setPasswordShowStatus] = useState<boolean>(false);
 	const isPressed = useKeyPress('Enter')
-
-
-
 
 	const formik = useFormik({
 		initialValues: {
