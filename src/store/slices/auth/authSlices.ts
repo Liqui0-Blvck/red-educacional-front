@@ -56,7 +56,7 @@ export const obtener_me = createAsyncThunk(
   async (payload: { token: string }, ThunkApi) => {
     const { token } = payload
     try {
-      const res = await fetchWithToken(`auth/users/me/`, token)
+      const res = await fetchWithToken(`users/me/`, token)
       if (res.status === 200){
         const data = res.data
         return data
@@ -68,21 +68,6 @@ export const obtener_me = createAsyncThunk(
 )
 
 
-export const obtener_perfil = createAsyncThunk(
-  'auth/obtener_perfil',
-  async (payload: { token: string, id: number }, ThunkApi) => {
-    const { token, id } = payload
-    try {
-      const res = await fetchWithToken(`api/perfil/${id}`, token)
-      if (res.status === 200){
-        const data: TPerfil = res.data
-        return data
-      }
-    } catch (error: any) {
-      return ThunkApi.rejectWithValue('No se pudo realizar la petición')
-    }
-  }
-)
 
 export const obtener_configuracion = createAsyncThunk(
   'auth/obtener_configuracion',
@@ -103,22 +88,22 @@ export const obtener_configuracion = createAsyncThunk(
 
 export const onLogin = createAsyncThunk(
   'auth/login',
-  async (payload: { data: { email: string, password: string },  navigate: any}, ThunkApi) => {
+  async (payload: { data: { rut: string, password: string },  navigate: any}, ThunkApi) => {
     const { data, navigate } = payload
     try {
       const res = await axios.post<AuthTokens>(`auth/jwt/create`, data)
       if (res.status === 200){
         const data: AuthTokens = res.data
         ThunkApi.dispatch(signInSuccess(res.data))
-        const me = await ThunkApi.dispatch(obtener_me({ token: data.access! })).unwrap()
-        const perfil: TPerfil | undefined = await ThunkApi.dispatch(obtener_perfil({ id: me.id, token: data.access! })).unwrap()
-        const configuracion = await ThunkApi.dispatch(obtener_configuracion({ id: perfil?.id, token: data.access! })).unwrap()
-        ThunkApi.dispatch(setUser({ perfil, configuracion }))
-        ThunkApi.dispatch(setColorApp(configuracion?.color_aplicacion!))
+        const perfil: TPerfil | undefined = await ThunkApi.dispatch(obtener_me({ token: data.access! })).unwrap()
+        // const perfil: TPerfil | undefined = await ThunkApi.dispatch(obtener_perfil({ id: me.id, token: data.access! })).unwrap()
+        // const configuracion = await ThunkApi.dispatch(obtener_configuracion({ id: perfil?.id, token: data.access! })).unwrap()
+        ThunkApi.dispatch(setUser({ perfil }))
+        // ThunkApi.dispatch(setColorApp(configuracion?.color_aplicacion!))
         toast.success('Inicio sesión correcto', {
           autoClose: 300,
           onClose: () => {
-            navigate('/home', { replace: true })
+            navigate('/sign-up', { replace: true })
           }
         });
       } 
@@ -133,7 +118,7 @@ export const onLogin = createAsyncThunk(
 
 export const onSignUp = createAsyncThunk(
   'auth/sign-up',
-  async (payload: { data: { email: string, password: string, re_password: string },  navigate: any}) => {
+  async (payload: { data: { rut: string, password: string, re_password: string },  navigate: any}) => {
     const { data, navigate } = payload
 
     try {

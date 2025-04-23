@@ -23,7 +23,7 @@ const userSlice = createSlice({
     reducers: {
         setUser(state, action: PayloadAction<UserState>) {
             state.perfil = action.payload?.perfil
-            state.configuracion = action.payload?.configuracion
+            // state.configuracion = action.payload?.configuracion
             state.authority = action.payload?.authority
         },
         setDataPerfil(state, action: PayloadAction<TPerfil>) {

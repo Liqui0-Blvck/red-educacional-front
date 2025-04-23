@@ -5,27 +5,33 @@ export type AuthTokens = {
 
 export type TPerfil = {
   id: number
-  usuario: {
-    id: number
-    email: string
-    first_name: string
-    second_name: string
-    father_last_name: string
-    mother_last_name: string
-    is_staff: boolean,
-    is_active: boolean,
-    date_joined: string,
-    groups: [],
-    user_permissions: []
+  email: string
+  first_name: string
+  second_name: string | null
+  father_last_name: string
+  mother_last_name: string
+  is_staff: boolean
+  is_active: boolean
+  date_joined: string
+  groups: any[] // o string[] si defines grupos por nombre
+  user_permissions: any[] // o string[]
+  birth_date: string | null
+  gender: string | null
+  address: string | null
+  phone_number: string | null
+  profile_image: string | null
+  social_links: string | null
+  last_modified: string
+  user_type: "alumno" | "docente" | "apoderado" | "administrador" | "asistente_educacion"
+  user_type_detail?: {
+    department?: string
+    role?: string
+    relationship_to_student?: string
+    subjects?: string[]
+    area_of_assistance?: string
   }
-  fecha_nacimiento: string
-  genero: string
-  direccion: string
-  numero_telefono: string
-  imagen_perfil: string
-  enlace_redes_sociales: string
-  fecha_modificacion: string
 }
+
 
 
 export type TConfiguracion = {

@@ -18,7 +18,7 @@ import { use } from 'i18next';
 
 
 type TValues = {
-	email: string;
+	rut: string;
 	password: string;
 };
 
@@ -33,14 +33,14 @@ const LoginPage = () => {
 
 	const formik = useFormik({
 		initialValues: {
-			email: '',
+			rut: '',
 			password: '',
 		},
 		validate: (values: TValues) => {
 			const errors: Partial<TValues> = {};
 
-			if (!values.email) {
-				errors.email = 'Required';
+			if (!values.rut) {
+				errors.rut = 'Required';
 			}
 
 			if (!values.password) {
@@ -105,18 +105,18 @@ const LoginPage = () => {
 							})}>
 							<Validation
 								isValid={formik.isValid}
-								isTouched={formik.touched.email}
-								invalidFeedback={formik.errors.email}
+								isTouched={formik.touched.rut}
+								invalidFeedback={formik.errors.rut}
 								validFeedback='Good'>
 								<FieldWrap
 									firstSuffix={<Icon icon='HeroEnvelope' className='mx-2' />}>
 									<Input
 										dimension='lg'
-										id='email'
-										autoComplete='email'
-										name='email'
-										placeholder='Email'
-										value={formik.values.email}
+										id='rut'
+										autoComplete='rut'
+										name='rut'
+										placeholder='rut'
+										value={formik.values.rut}
 										onChange={formik.handleChange}
 										onBlur={formik.handleBlur}
 									/>

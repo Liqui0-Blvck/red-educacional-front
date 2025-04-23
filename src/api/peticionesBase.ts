@@ -1,7 +1,7 @@
-// src/axiosRequests.js
-import axios from '../config/axios.config';
+
 import { SessionState } from '../store/slices/auth/sessionSlice';
 import { AuthTokens } from '../types/core/core.types';
+import axios from '../config/axios.config'
 
 const fetchWithToken = async (url: string, token: string) => {
   try {
