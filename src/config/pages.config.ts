@@ -211,6 +211,14 @@ export const appPages = {
         to: '/administracion/estudiantes',
         text: 'Estudiantes',
         icon: 'HeroUserCircle',
+				subPages: {
+					studentDetail: {
+						id: 'studentDetail',
+						to: '/administracion/estudiantes/:studentId',
+						text: 'Detalle Estudiante',
+						icon: 'HeroDocumentText',
+					},
+				},
       },
       studentDetail: {
         id: 'studentDetail',
@@ -227,7 +235,7 @@ export const appPages = {
       staffPage: {
         id: 'staffPage',
         to: '/administracion/personal',
-        text: 'Personal del Establecimiento',
+        text: 'Personal',
         icon: 'HeroBriefcase',
         subPages: {
           teachers: {
@@ -265,7 +273,7 @@ export const appPages = {
       communicationPage: {
         id: 'communicationPage',
         to: '/administracion/comunicaciones',
-        text: 'Comunicaciones Institucionales',
+        text: 'Comunicaciones',
         icon: 'HeroEnvelope',
       },
       attendancePage: {

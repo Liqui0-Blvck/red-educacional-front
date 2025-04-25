@@ -47,7 +47,6 @@ export const ThemeContextProvider: FC<IThemeContextProviderProps> = ({ children 
 		(localStorage.getItem('fyr_language') as TLang) || themeConfig.language,
 	);
 
-	console.log(language)
 	useLayoutEffect(() => {
 		localStorage.setItem('fyr_language', language);
 
@@ -74,19 +73,19 @@ export const ThemeContextProvider: FC<IThemeContextProviderProps> = ({ children 
 	const [darkModeStatus, setDarkModeStatus] = useState<TDarkMode | null>(
 		(localStorage.getItem('theme') || themeConfig.theme) as TDarkMode,
 	);
-	const [isDarkTheme, setIsDarkTheme] = useState<boolean>(darkModeStatus === DARK_MODE.DARK);
+	const [isDarkTheme, setIsDarkTheme] = useState<boolean>(darkModeStatus === DARK_MODE.LIGHT);
 	useLayoutEffect(() => {
 		localStorage.setItem('theme', darkModeStatus as string);
 
 		if (
-			localStorage.getItem('theme') === DARK_MODE.DARK ||
+			localStorage.getItem('theme') === DARK_MODE.LIGHT ||
 			(
-				window.matchMedia(`(prefers-color-scheme: ${DARK_MODE.DARK})`).matches)
+				window.matchMedia(`(prefers-color-scheme: ${DARK_MODE.LIGHT})`).matches)
 		) {
-			document.documentElement.classList.add(DARK_MODE.DARK);
+			document.documentElement.classList.add(DARK_MODE.LIGHT);
 			setIsDarkTheme(true);
 		} else {
-			document.documentElement.classList.remove(DARK_MODE.DARK);
+			document.documentElement.classList.remove(DARK_MODE.LIGHT);
 			setIsDarkTheme(false);
 		}
 	}, [darkModeStatus]);
@@ -95,16 +94,20 @@ export const ThemeContextProvider: FC<IThemeContextProviderProps> = ({ children 
 	 * Aside Status
 	 */
 	const { width } = useDeviceScreen();
-	const [asideStatus, setAsideStatus] = useState(
-		localStorage.getItem('fyr_asideStatus')
-			? localStorage.getItem('fyr_asideStatus') === 'true'
-			: true,
-	);
+	const [asideStatus, setAsideStatus] = useState(() => {
+		const saved = localStorage.getItem('fyr_asideStatus');
+		return saved !== null ? saved === 'true' : true;
+	});
+
+	console.log(asideStatus)
+	
 	useLayoutEffect(() => {
 		if (Number(theme.screens.md.replace('px', '')) <= Number(width))
 			localStorage.setItem('fyr_asideStatus', asideStatus?.toString());
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [asideStatus]);
+
+
 	useEffect(() => {
 		if (Number(theme.screens.md.replace('px', '')) > Number(width)) setAsideStatus(false);
 		return () => {

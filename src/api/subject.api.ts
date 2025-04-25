@@ -1,7 +1,7 @@
 // src/api/subject.api.ts
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Subject } from '../types/academic/subject';
-import axios from 'axios';
+import axios from '../config/axios.config';
 
 //@ts-ignore
 const BASE_URL = `${import.meta.env.VITE_URL_DEV}/api/academic/subjects/`;

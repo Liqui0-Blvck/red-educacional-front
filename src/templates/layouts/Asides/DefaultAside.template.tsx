@@ -49,10 +49,17 @@ const DefaultAsideTemplate = () => {
 							<NavItem {...appPages.academicAppPages.subPages.subjectAssignmentPage} />
 
 							<NavTitle>Gestión Administrativa</NavTitle>
-							<NavItem {...appPages.administrativeAppPages.subPages.usersPage} />
+							<NavItem {...appPages.administrativeAppPages.subPages.studentsPage} />
 							<NavItem {...appPages.administrativeAppPages.subPages.guardiansPage} />
-							<NavItem {...appPages.administrativeAppPages.subPages.staffPage} />
 							<NavItem {...appPages.administrativeAppPages.subPages.communicationPage} />
+							<NavCollapse 
+								text={appPages.administrativeAppPages.subPages.staffPage.text}
+								to={appPages.administrativeAppPages.subPages.staffPage.to}
+								icon={appPages.administrativeAppPages.subPages.staffPage.icon}>
+								<NavItem {...appPages.administrativeAppPages.subPages.staffPage.subPages.teachers} />
+								<NavItem {...appPages.administrativeAppPages.subPages.staffPage.subPages.assistants} />
+								<NavItem {...appPages.administrativeAppPages.subPages.staffPage.subPages.admins} />
+							</NavCollapse>
 						</>
 					)}
 

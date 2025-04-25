@@ -5,7 +5,7 @@ import useAsideStatus from '../../../hooks/useAsideStatus';
 import useDomRect from '../../../hooks/useDomRect';
 
 interface IHeaderLeftProps extends HTMLAttributes<HTMLDivElement> {
-	children: ReactNode;
+	children?: ReactNode;
 	className?: string;
 }
 export const HeaderLeft: FC<IHeaderLeftProps> = (props) => {

@@ -35,10 +35,15 @@ const sessionSlice = createSlice({
             state.signedIn = action.payload.signedIn
             state.token = action.payload.token
             state.refresh = action.payload.refresh
-        }
+        },
+        logout(state) {
+            state.token = null;
+            state.refresh = null;
+            state.signedIn = false;
+          },
         
     },
 })
 
-export const { signInSuccess, signOutSuccess, tokenRefrescado, persistanceTokens} = sessionSlice.actions
+export const { signInSuccess, signOutSuccess, tokenRefrescado, persistanceTokens, logout } = sessionSlice.actions
 export default sessionSlice.reducer

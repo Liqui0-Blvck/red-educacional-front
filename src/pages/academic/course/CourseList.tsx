@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
   createColumnHelper,
   getCoreRowModel,
@@ -24,6 +24,7 @@ import TableTemplate, {
 import Badge from '../../../components/ui/Badge';
 import Subheader, {
   SubheaderLeft,
+  SubheaderRight,
 } from '../../../components/layouts/Subheader/Subheader';
 import FieldWrap from '../../../components/form/FieldWrap';
 import { useNavigate } from 'react-router-dom';
@@ -36,14 +37,26 @@ import { HeroEye } from '../../../components/icon/heroicons';
 function CourseList() {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [globalFilter, setGlobalFilter] = useState<string>('');
+  const [viewMode, setViewMode] = useState<'table' | 'grid'>('table');
+  const [visibleCount, setVisibleCount] = useState(8);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setViewMode('grid'); // Forzar grid en móviles
+      }
+    };
+  
+    handleResize(); // Corre al montar
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const navigate = useNavigate();
   const columnHelper = createColumnHelper<Course>();
-
   const { data: courses = [], isLoading, isError, error } = useCourses();
-  console.log(courses)
 
+  
 
   const columns = useMemo(() => [
     columnHelper.accessor('grade', {
@@ -58,7 +71,6 @@ function CourseList() {
       cell: (info) => <span>{info.row.original.shift}</span>,
       header: 'Turno',
     }),
-
     columnHelper.accessor('head_teacher.name', {
       cell: (info) => (
         <span>
@@ -106,11 +118,14 @@ function CourseList() {
   if (isLoading) return <p>Cargando cursos...</p>;
   if (isError) return <p>Error al cargar cursos: {(error as Error).message}</p>;
 
+
+
   return (
     <PageWrapper name='Lista Cursos'>
       <Subheader>
         <SubheaderLeft>
           <FieldWrap
+            className="md:w-full sm:w-full w-full"
             firstSuffix={<Icon className='mx-2' icon='HeroMagnifyingGlass' />}
             lastSuffix={
               globalFilter && (
@@ -132,6 +147,7 @@ function CourseList() {
           </FieldWrap>
         </SubheaderLeft>
       </Subheader>
+
       <Container breakpoint={null} className='w-full'>
         <Card className='h-full'>
           <CardHeader>
@@ -144,11 +160,76 @@ function CourseList() {
                 {table.getFilteredRowModel().rows.length} items
               </Badge>
             </CardHeaderChild>
+            <CardHeaderChild>
+            {
+                window.innerWidth > 760 && (
+                  <>
+                  <Button
+                    variant={viewMode === 'table' ? 'solid' : 'outline'}
+                    color='blue'
+                    icon='HeroTableCells'
+                    size='lg'
+                    onClick={() => setViewMode('table')}/>
+
+                  <Button
+                    variant={viewMode === 'grid' ? 'solid' : 'outline'}
+                    color='blue'
+                    icon='HeroSquares2X2'
+                    size='lg'
+                    onClick={() => setViewMode('grid')}/>
+                  </>
+                )
+              }
+            </CardHeaderChild>
           </CardHeader>
+
           <CardBody className='overflow-auto'>
-            <TableTemplate className='table-fixed max-md:min-w-[70rem]' table={table} />
+            {viewMode === 'table' ? (
+              <TableTemplate className='table-fixed max-md:min-w-[70rem]' table={table} />
+            ) : (
+              <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4'>
+                {table.getFilteredRowModel().rows.slice(0, visibleCount).map((row) => {
+                  const course = row.original;
+                  return (
+                    <div key={course.id} className='dark:bg-zinc-800 bg-zinc-200 shadow-md rounded-xl p-4 border border-zinc-500'>
+                      <div className='flex justify-between items-center mb-2'>
+                        <span className='text-indigo-400 font-semibold text-sm'>Curso ID: {course.id}</span>
+                        <span className='text-sm font-medium text-gray-200'>{course.shift}</span>
+                      </div>
+
+                      <div className='text-center'>
+                        <p className='text-lg font-semibold'>{course.grade}</p>
+                        <p className='text-sm text-zinc-400'>Turno: {course.shift}</p>
+                      </div>
+
+                      <div className='text-sm mt-4'>
+                        <p><strong>Profesor Jefe:</strong> {course.head_teacher?.name ?? 'Sin asignar'}</p>
+                        <p><strong>N° Alumnos:</strong> {course.count_of_students}</p>
+                      </div>
+
+                      <div className='flex justify-center mt-4'>
+                        <Button
+                          size='sm'
+                          variant='solid'
+                          color='blue'
+                          onClick={() => navigate(`ejercicio/${course.id}`)}>
+                          Ver detalles
+                        </Button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
           </CardBody>
-          <TableCardFooterTemplate table={table} />
+
+          {viewMode === 'grid' && table.getFilteredRowModel().rows.length > visibleCount && (
+            <div className='flex justify-center p-4'>
+              <Button onClick={() => setVisibleCount((prev) => prev + 8)} color='blue'>Ver más</Button>
+            </div>
+          )}
+
+          {viewMode === 'table' && <TableCardFooterTemplate table={table} />}
         </Card>
       </Container>
     </PageWrapper>

@@ -1,6 +1,6 @@
 // services/api/courses.ts
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import axios from 'axios';
+import axios from '../config/axios.config';
 import { Course } from '../types/academic/course';
 
 //@ts-ignore
