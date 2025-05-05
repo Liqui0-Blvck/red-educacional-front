@@ -14,10 +14,10 @@ import TableTemplate, { TableCardFooterTemplate } from '../../../../templates/co
 type Status = 'Present' | 'Absent' | 'HalfDay' | 'Late' | 'Holiday';
 const statusColors: Record<Status, { color: string; icon: string }> = {
   Present: { color: 'green', icon: 'HeroCheckCircle' },
-  Absent: { color: 'red', icon: 'HeroXCircle' },
-  HalfDay: { color: 'blue', icon: 'HeroAdjustmentsHorizontal' },
-  Late: { color: 'yellow', icon: 'HeroClock' },
-  Holiday: { color: 'indigo', icon: 'HeroCalendarDays' },
+  Absent:  { color: 'red',   icon: 'HeroXCircle'      },
+  HalfDay: { color: 'blue',  icon: 'HeroAdjustmentsHorizontal' },
+  Late:    { color: 'yellow',icon: 'HeroClock'        },
+  Holiday: { color: 'indigo',icon: 'HeroCalendarDays' },
 };
 
 // Meses abreviados
@@ -28,8 +28,7 @@ const generateMockData = () => {
   const rows: any[] = [];
   for (let day = 1; day <= 31; day++) {
     const row: any = { day: String(day).padStart(2, '0') };
-    months.forEach((m) => {
-      // asigna estado aleatorio para ejemplo
+    months.forEach(m => {
       const keys = Object.keys(statusColors) as Status[];
       row[m] = keys[Math.floor(Math.random() * keys.length)];
     });
@@ -48,14 +47,18 @@ export default function AttendanceStudent() {
   // Definir columnas: día y meses
   const columns = useMemo(() => [
     columnHelper.accessor('day', { header: 'Date | Month' }),
-    ...months.map((m) =>
+    ...months.map(m =>
       columnHelper.accessor(m as any, {
         header: m,
         cell: ({ getValue }) => {
           const status = getValue() as Status;
           const { color, icon } = statusColors[status];
           return (
-            <Badge variant="solid" color={color} className="p-1">
+            <Badge 
+              variant="solid" 
+              //@ts-ignore
+              color={color} 
+              className="p-1">
               <Icon icon={icon} />
             </Badge>
           );
@@ -73,31 +76,50 @@ export default function AttendanceStudent() {
 
   // Cálculo resumen
   const summary = useMemo(() => {
-    const count: Record<Status, number> = { Present:0, Absent:0, HalfDay:0, Late:0, Holiday:0 };
-    data.forEach(row => months.forEach(m => count[row[m] as Status]++));
+    const count: Record<Status, number> = {
+      Present:0, Absent:0, HalfDay:0, Late:0, Holiday:0
+    };
+    data.forEach(row =>
+      months.forEach(m => count[row[m] as Status]++)
+    );
     return count;
   }, [data]);
 
   return (
     <div className="space-y-6">
-      {/* Header con resumen y controles */}
+      {/* Resumen y controles */}
       <Card>
-        <CardHeader className="flex justify-between items-center">
+        <CardHeader className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
           <h2 className="text-lg font-semibold">Attendance</h2>
-          <div className="flex items-center space-x-4">
-            <span>Last Updated on : 25 May 2024</span>
-            <Button variant="outline" size="sm" icon="HeroArrowPath" />
-            <select value={year} onChange={e => setYear(e.target.value)} className="border rounded px-2 py-1">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 gap-2 w-full lg:w-auto">
+            <span className="whitespace-nowrap">Last Updated on: 25 May 2024</span>
+            <Button variant="outline" size="sm" icon="HeroArrowPath">Refresh</Button>
+            <select
+              value={year}
+              onChange={e => setYear(e.target.value)}
+              className="border rounded px-2 py-1 w-full sm:w-auto"
+            >
               <option>2023 / 2024</option>
               <option>2024 / 2025</option>
             </select>
           </div>
         </CardHeader>
-        <CardBody className="grid grid-cols-5 gap-4">
-          {(['Present','Absent','HalfDay','Late'] as Status[]).map((s) => (
-            <Card key={s}>
+
+        <CardBody className="
+          grid
+          grid-cols-1
+          sm:grid-cols-2
+          md:grid-cols-3
+          lg:grid-cols-5
+          gap-4
+          p-4
+        ">
+          {(['Present','Absent','HalfDay','Late','Holiday'] as Status[]).map(s => (
+            <Card key={s} className="w-full">
               <CardBody className="flex items-center space-x-4">
-                <Badge variant="outline" color={statusColors[s].color}>
+                <Badge variant="outline" 
+                  //@ts-ignore
+                  color={statusColors[s].color}>
                   <Icon icon={statusColors[s].icon} />
                 </Badge>
                 <div>
@@ -110,21 +132,27 @@ export default function AttendanceStudent() {
         </CardBody>
       </Card>
 
-      {/* Legend y tabla */}
+      {/* Leyenda y export */}
       <Card>
-        <CardHeader className="flex justify-between items-center">
-          <div className="space-x-2">
+        <CardHeader className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
+          <div className="flex flex-wrap gap-2">
             {Object.entries(statusColors).map(([key, { color, icon }]) => (
-              <Badge key={key} variant="outline" color={color} className="mr-2">
+              <Badge key={key} variant="outline" 
+                //@ts-ignore
+                color={color} className="flex items-center gap-1">
                 <Icon icon={icon} /> {key}
               </Badge>
             ))}
           </div>
           <Button variant="outline" size="sm">Export</Button>
         </CardHeader>
-        <CardBody>
-          <TableTemplate table={table} />
-          <TableCardFooterTemplate table={table} />
+
+        {/* Tabla scrollable */}
+        <CardBody className="overflow-x-auto">
+          <div className="min-w-[800px]">
+            <TableTemplate table={table} />
+            <TableCardFooterTemplate table={table} />
+          </div>
         </CardBody>
       </Card>
     </div>

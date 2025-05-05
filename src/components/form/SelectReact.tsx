@@ -16,7 +16,7 @@ export type TSelectDimension = 'sm' | 'default' | 'lg' | 'xl';
 
 type TSelectOption =
 	| {
-			value: string;
+			value: string | boolean;
 			label: string;
 			isFixed?: boolean;
 			isDisabled?: boolean;

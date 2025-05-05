@@ -1,4 +1,3 @@
-// src/hooks/useRouteGuard.ts
 import { useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useAppSelector } from '../store';
@@ -10,15 +9,17 @@ type RouteGuard = {
   showAside: boolean;
 };
 
+const LAST_PATH_KEY = 'lastAllowedPath';
+
 export function useRouteGuard(): RouteGuard {
   const { pathname } = useLocation();
   const signedIn = useAppSelector(s => s.auth.session.signedIn);
 
-  // EXCEPCIÓN: siempre permitimos ver el 404 (y no mostramos Aside nunca)
+  // Siempre permitimos 404
   if (pathname === '/404') {
     return {
       isAllowed: true,
-      showAside: signedIn,  // sólo mostramos Aside si está logueado
+      showAside: signedIn,
     };
   }
 
@@ -33,22 +34,25 @@ export function useRouteGuard(): RouteGuard {
       new RegExp(`^${pattern.replace(/:[^/]+/g, '[^/]+')}$`).test(pathname)
     );
 
-  let isAllowed = true;
-  let showAside = true;
+  // Chequeo principal
+  let isAllowed: boolean;
+  let showAside: boolean;
 
   if (!signedIn) {
-    // No autenticado → sólo authPages
     isAllowed = matches(authRoutes);
     showAside = false;
   } else {
-    // Autenticado → bloquea authPages
     if (matches(authRoutes)) {
       isAllowed = false;
     } else {
       isAllowed = matches(appRoutes);
     }
-    // Aside sólo en rutas de appPages/userPages
     showAside = matches(appRoutes);
+  }
+
+  // Si es ruta de appPages válida, la guardamos
+  if (signedIn && isAllowed && showAside) {
+    localStorage.setItem(LAST_PATH_KEY, pathname);
   }
 
   return { isAllowed, showAside };

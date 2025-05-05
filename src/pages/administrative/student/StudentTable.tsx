@@ -194,7 +194,7 @@ function StudentTable() {
                   return (
                     <div 
                       key={student.id}
-                      className='dark:bg-zinc-800 bg-zinc-200 shadow-md rounded-xl p-4 border border-zinc-500'>
+                      className='dark:bg-zinc-800 bg-zinc-100 shadow-md rounded-xl p-4 border dark:border-zinc-500 border-zinc-300'>
                       <div className='flex justify-between items-start mb-2'>
                         <span className='text-blue-700 font-semibold text-sm cursor-pointer'>AD{String(student.id).slice(-6)}</span>
                         <span className={`text-xs font-medium px-2 py-1 rounded-full ${student.status ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
@@ -208,9 +208,9 @@ function StudentTable() {
                           className='w-16 h-16 rounded-full mb-2'
                         />
                         <p className='font-semibold text-sm'>{student.first_name} {student.last_name}</p>
-                        <p className='text-sm text-gray-300'>{student.course ?? 'Sin curso'}</p>
+                        <p className='text-sm dark:text-zinc-300 text-zinc-600'>{student.course ?? 'Sin curso'}</p>
                       </div>
-                      <div className='flex justify-between text-xs text-zinc-300 mt-4'>
+                      <div className='flex justify-between text-xs dark:text-zinc-300 text-zinc-600 mt-4'>
                         <div className='text-center text-sm'>
                           <p className='font-medium'>RUN</p>
                           <p>{student.dni}</p>
@@ -227,7 +227,7 @@ function StudentTable() {
                       <div className='flex justify-around items-center mt-4 border-t pt-2'>
                        <Button
                           className='w-24'
-                          variant='outline'
+                          variant='solid'
                           color='blue'
                           size='lg'
                           icon='HeroEye'
@@ -237,7 +237,7 @@ function StudentTable() {
 
                        <Button
                           className='w-24'
-                          variant='outline'
+                          variant='solid'
                           color='blue'
                           size='lg'
                           icon='HeroPhone'
@@ -246,7 +246,7 @@ function StudentTable() {
 
                        <Button
                           className='w-24'
-                          variant='outline'
+                          variant='solid'
                           color='blue'
                           size='lg'
                           icon='HeroEnvelope'

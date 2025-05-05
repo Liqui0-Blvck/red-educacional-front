@@ -90,41 +90,38 @@ const scheduleData: ClassSession[] = [
 
 export default function ScheduleStudent() {
   return (
-    <Card>
-      <CardHeader className='border-b-2 border-zinc-100 dark:border-zinc-800 pb-2'>
+    <Card className="w-full">
+      <CardHeader className="border-b-2 border-zinc-100 dark:border-zinc-800 pb-2">
         <h2>Horario</h2>
       </CardHeader>
-
-      <CardBody className='bg-zinc-50 p-2'>
-        <div className="grid grid-cols-5 gap-4">
+      <CardBody className="bg-zinc-50 p-2 overflow-x-auto">
+        {/* 
+          grid-cols-1 en móvil,
+          sm:grid-cols-2 a partir de 640px,
+          md:grid-cols-3 a partir de 768px,
+          lg:grid-cols-5 a partir de 1024px
+        */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
           {days.map((day, idx) => (
-            <div key={day}>
-              <h3 className="mb-2 text-lg font-medium">{day}</h3>
+            <div key={day} className="flex flex-col">
+              <h3 className="mb-2 text-lg font-medium text-center">{day}</h3>
               <div className="space-y-4">
                 {scheduleData
-                  .filter((session) => session.day === day)
-                  .map((session) => (
+                  .filter(session => session.day === day)
+                  .map(session => (
                     <Card key={session.id} className={`${colors[idx]} shadow-sm`}>
-                      <CardBody>
-                        <div className="flex flex-col space-y-2">
-                          <div className="flex items-center text-gray-600 text-sm">
-                            <Icon icon="HeroClock" className="mr-2" />
-                            <span>{`${session.start_time} - ${session.end_time} AM`}</span>
-                          </div>
-                          <div className="font-semibold">Subject: {session.subject_name}</div>
-                          <div className="flex items-center">
-                            {
-                              session.subject_name === 'Recreo 1' || session.subject_name === 'Recreo 2' || session.subject_name === 'Almuerzo' ? (
-                                null
-                              ) : (
-                                <Avatar
-                                  className="w-8 h-8 mr-2"
-                                />
-                              )
-                            }
+                      <CardBody className="p-3 flex flex-col gap-2">
+                        <div className="flex items-center text-gray-600 text-sm">
+                          <Icon icon="HeroClock" className="mr-2" />
+                          <span>{`${session.start_time} - ${session.end_time}`}</span>
+                        </div>
+                        <div className="font-semibold text-sm">{session.subject_name}</div>
+                        {session.teacher_name && (
+                          <div className="flex items-center text-sm">
+                            <Avatar className="w-6 h-6 mr-2"/>
                             <span>{session.teacher_name}</span>
                           </div>
-                        </div>
+                        )}
                       </CardBody>
                     </Card>
                   ))}
