@@ -145,7 +145,7 @@ export interface Student {
 
   // Datos personales
   first_name: string;
-  second_name?: string;
+  last_name?: string;
   father_last_name: string;
   mother_last_name: string;
   date_of_birth: string;             // "YYYY-MM-DD"
@@ -184,7 +184,7 @@ export interface StudentList {
   id: string;
   dni: string;                       // ej. "12345678-9"
   first_name: string;
-  second_name?: string;
+  last_name: string;
   father_last_name: string;
   mother_last_name: string;
   status: string;

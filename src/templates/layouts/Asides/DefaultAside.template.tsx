@@ -23,12 +23,7 @@ const DefaultAsideTemplate = () => {
 	const { user } = useAppSelector((state) => state.auth);
 
 
-
-
-	console.log(user.perfil?.user_type)
-
   if (!showAside) {
-		
     return <main className='bg-blue-900'></main>;
   }
 
@@ -52,6 +47,7 @@ const DefaultAsideTemplate = () => {
 							<NavItem {...appPages.administrativeAppPages.subPages.studentsPage} />
 							<NavItem {...appPages.administrativeAppPages.subPages.guardiansPage} />
 							<NavItem {...appPages.administrativeAppPages.subPages.communicationPage} />
+							<NavItem {...appPages.administrativeAppPages.subPages.enrollmentPage} />
 							<NavCollapse 
 								text={appPages.administrativeAppPages.subPages.staffPage.text}
 								to={appPages.administrativeAppPages.subPages.staffPage.to}

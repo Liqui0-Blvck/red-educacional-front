@@ -220,12 +220,20 @@ export const appPages = {
 					},
 				},
       },
-      studentDetail: {
-        id: 'studentDetail',
-        to: '/administracion/estudiantes/:studentId',
-        text: 'Detalle Estudiante',
-        icon: 'HeroDocumentText',
-      },
+			enrollmentPage: {
+				id: 'enrollmentPage',
+				to: '/administracion/matriculas',
+				text: 'Matriculas',
+				icon: 'HeroUserPlus',
+				subPages: {
+					enrollmentDetail: {
+						id: 'enrollmentDetail',
+						to: '/administracion/matriculas/:enrollmentId',
+						text: 'Detalle Matricula',
+						icon: 'HeroDocumentText',
+					},
+				}
+			},
       guardiansPage: {
         id: 'guardiansPage',
         to: '/administracion/apoderados',

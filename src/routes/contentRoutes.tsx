@@ -20,6 +20,8 @@ const SubjectsTable = lazy(() => import('../pages/academic/subject/SubjectTable'
 // ADMINISTRATIVE
 const StudentTable = lazy(() => import('../pages/administrative/student/StudentTable'));
 const StudentDetail = lazy(() => import('../pages/administrative/student/StudentDetail'));
+const EnrollmentTable = lazy(() => import('../pages/administrative/enrollment/EnrollmentTable'));
+const EnrollmentDetail = lazy(() => import('../pages/administrative/enrollment/EnrollmentDetail'));
 
 /**
  * UI
@@ -180,6 +182,9 @@ const contentRoutes: RouteProps[] = [
 	/** ADMINISTRATIVE URLS **/
 	{ path: appPages.administrativeAppPages.subPages.studentsPage.to, element: <StudentTable /> },
 	{ path: appPages.administrativeAppPages.subPages.studentsPage.subPages.studentDetail.to, element: <StudentDetail /> },
+	{ path: appPages.administrativeAppPages.subPages.enrollmentPage.to, element: <EnrollmentTable /> },
+	{ path: appPages.administrativeAppPages.subPages.enrollmentPage.subPages.enrollmentDetail.to, element: <EnrollmentDetail /> },
+
 
 
 	
