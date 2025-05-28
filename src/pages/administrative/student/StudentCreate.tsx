@@ -15,8 +15,8 @@ import Card, { CardBody, CardFooter, CardFooterChild, CardHeader, CardTitle } fr
 import Button from '../../../components/ui/Button';
 import useSaveBtn from '../../../hooks/useSaveBtn';
 import Validation from '../../../components/form/Validation';
-import { useCreateStudent } from '../../../api/students.api';
 import { Student } from '../../../types/administrative/Student';
+import { useCreateStudent } from '../services/students.api';
 
 function StudentCreate() {
   const [isSaving, setIsSaving] = useState<boolean>(false);

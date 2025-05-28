@@ -10,7 +10,7 @@ import Validation from '../../../../../components/form/Validation';
 import Button from '../../../../../components/ui/Button';
 import SelectReact from '../../../../../components/form/SelectReact';
 import { Student, ChronicDisease, Allergy } from '../../../../../types/administrative/Student';
-import { useUpdateHealthInfo } from '../../../../../api/students.api';
+import { useUpdateHealthInfo } from '../../../services/students.api';
 
 const booleanOptions = [
   { value: true, label: 'Sí' },

@@ -8,7 +8,6 @@ import Card, { CardBody, CardHeader } from '../../../components/ui/Card';
 import Button from '../../../components/ui/Button';
 import useSaveBtn from '../../../hooks/useSaveBtn';
 import { useParams } from 'react-router-dom';
-import { useStudent, useUpdateStudent } from '../../../api/students.api';
 import StudentTabsButtons, { TAB_STUDENT, TTabStudent } from './components/StudentsButtons';
 import DetailStudent from './components/DetailStudent';
 import Avatar from '../../../components/Avatar';
@@ -19,6 +18,7 @@ import AttendanceStudent from './components/AttendanceStudent';
 import ResultStudents from './components/ResultStudents';
 import Icon from '../../../components/icon/Icon';
 import UpdateStudent from './components/UpdateStudent';
+import { useStudent } from '../services/students.api';
 
 
 

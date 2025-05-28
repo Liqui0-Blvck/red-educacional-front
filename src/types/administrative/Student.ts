@@ -1,5 +1,7 @@
 // src/types/administrative/Student.ts
 
+import { Guardian } from "./Guardians";
+
 /** Valores posibles para género */
 export enum Gender {
   Male = 'male',
@@ -33,21 +35,6 @@ export interface BooleanOption {
   label: string;
 }
 
-/** Un apoderado/tutor del estudiante */
-export interface Guardian {
-  id: string;
-  identification_number: string;
-  first_name: string;
-  second_name: string;
-  father_last_name: string;
-  mother_last_name: string;
-  relationship_to_student: string;
-  phone: string;
-  email: string;
-  address: string;
-  occupation: string;
-  photo: File | null;
-}
 
 /** Datos de residencia */
 export interface Residence {

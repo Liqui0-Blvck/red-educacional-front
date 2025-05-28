@@ -44,10 +44,10 @@ const DefaultAsideTemplate = () => {
 							<NavItem {...appPages.academicAppPages.subPages.subjectAssignmentPage} />
 
 							<NavTitle>Gestión Administrativa</NavTitle>
+							<NavItem {...appPages.administrativeAppPages.subPages.enrollmentPage} />
 							<NavItem {...appPages.administrativeAppPages.subPages.studentsPage} />
 							<NavItem {...appPages.administrativeAppPages.subPages.guardiansPage} />
 							<NavItem {...appPages.administrativeAppPages.subPages.communicationPage} />
-							<NavItem {...appPages.administrativeAppPages.subPages.enrollmentPage} />
 							<NavCollapse 
 								text={appPages.administrativeAppPages.subPages.staffPage.text}
 								to={appPages.administrativeAppPages.subPages.staffPage.to}
@@ -87,35 +87,6 @@ const DefaultAsideTemplate = () => {
 				</Nav>
 			</AsideBody>
 			<AsideFooter>
-				<Nav>
-					<NavSeparator />
-					<NavCollapse text='Nav Collapse' to='/' icon='HeroQueueList'>
-						<NavItem text='Nav item' icon='HeroPencil' />
-						<NavItem text='With badge'>
-							<Badge variant='solid' className='leading-none'>
-								3
-							</Badge>
-						</NavItem>
-						<NavItem text='With button'>
-							<NavButton icon='HeroRocketLaunch' title='New' />
-						</NavItem>
-						<NavItem text='With badge & button'>
-							<Badge variant='solid' className='leading-none'>
-								3
-							</Badge>
-							<NavButton icon='HeroRocketLaunch' title='New' />
-						</NavItem>
-						<NavTitle>Navigation Title</NavTitle>
-						<NavCollapse text='Nav Level 2' to='/' icon='HeroQueueList'>
-							<NavItem text='Nav Item' />
-							<NavCollapse text='Nav Level 3' to='/' icon='HeroQueueList'>
-								<NavItem text='Nav Item' />
-							</NavCollapse>
-							<NavItem text='Nav Item' />
-						</NavCollapse>
-					</NavCollapse>
-				</Nav>
-
 				<UserTemplate />
 				<DarkModeSwitcherPart />
 			</AsideFooter>

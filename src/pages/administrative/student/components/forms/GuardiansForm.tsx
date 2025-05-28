@@ -7,8 +7,8 @@ import FieldWrap from '../../../../../components/form/FieldWrap';
 import Validation from '../../../../../components/form/Validation';
 import Button from '../../../../../components/ui/Button';
 import SelectReact from '../../../../../components/form/SelectReact';
-import { Guardian } from '../../../../../types/administrative/Student';
 import Avatar from '../../../../../components/Avatar';
+import { Guardian } from '../../../../../types/administrative/Guardians';
 
 export interface GuardiansFormValues {
   guardians: Array<Guardian & { photo: File | null }>

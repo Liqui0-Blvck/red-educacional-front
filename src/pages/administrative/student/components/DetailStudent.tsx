@@ -2,7 +2,8 @@ import React, { FC } from 'react'
 import Card, { CardBody, CardHeader } from '../../../../components/ui/Card'
 import Avatar from '../../../../components/Avatar'
 import Icon from '../../../../components/icon/Icon'
-import { Guardian, Student, Sibling } from '../../../../types/administrative/Student'
+import { Student, Sibling } from '../../../../types/administrative/Student'
+import { Guardian } from '../../../../types/administrative/Guardians'
 
 interface IDetailStudentProps {
   student: Student

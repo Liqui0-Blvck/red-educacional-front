@@ -8,7 +8,7 @@ import Validation from '../../../../../components/form/Validation';
 import Button from '../../../../../components/ui/Button';
 import SelectReact from '../../../../../components/form/SelectReact';
 import { EthnicityRecord, Student } from '../../../../../types/administrative/Student';
-import { useUpdateEthnicityInfo } from '../../../../../api/students.api';
+import { useUpdateEthnicityInfo } from '../../../services/students.api';
 
 
 const boolean_options = [

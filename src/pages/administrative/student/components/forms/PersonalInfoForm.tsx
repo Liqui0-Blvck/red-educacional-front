@@ -9,7 +9,7 @@ import Button from '../../../../../components/ui/Button';
 import SelectReact from '../../../../../components/form/SelectReact';
 import { Student } from '../../../../../types/administrative/Student';
 import Textarea from '../../../../../components/form/Textarea';
-import { useUpdateStudent } from '../../../../../api/students.api';
+import { useUpdateStudent } from '../../../services/students.api';
 
 const gender_options = [
   { value: 'male', label: 'Masculino' },

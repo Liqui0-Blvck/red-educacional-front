@@ -22,6 +22,9 @@ const StudentTable = lazy(() => import('../pages/administrative/student/StudentT
 const StudentDetail = lazy(() => import('../pages/administrative/student/StudentDetail'));
 const EnrollmentTable = lazy(() => import('../pages/administrative/enrollment/EnrollmentTable'));
 const EnrollmentDetail = lazy(() => import('../pages/administrative/enrollment/EnrollmentDetail'));
+const GuardianTable = lazy(() => import('../pages/administrative/guardian/GuardianTable'));
+
+const TeacherTable = lazy(() => import('../pages/administrative/teacher/TeacherTable'));
 
 /**
  * UI
@@ -184,10 +187,10 @@ const contentRoutes: RouteProps[] = [
 	{ path: appPages.administrativeAppPages.subPages.studentsPage.subPages.studentDetail.to, element: <StudentDetail /> },
 	{ path: appPages.administrativeAppPages.subPages.enrollmentPage.to, element: <EnrollmentTable /> },
 	{ path: appPages.administrativeAppPages.subPages.enrollmentPage.subPages.enrollmentDetail.to, element: <EnrollmentDetail /> },
+	{ path: appPages.administrativeAppPages.subPages.guardiansPage.to, element: <GuardianTable /> },
 
+	{ path: appPages.administrativeAppPages.subPages.staffPage.subPages.teachers.to, element: <TeacherTable /> },
 
-
-	
 	/**
 	 * ICONS::BEGIN
 	 */

@@ -21,10 +21,10 @@ import Icon from '../../../components/icon/Icon';
 import Button from '../../../components/ui/Button';
 import Badge from '../../../components/ui/Badge';
 import TableTemplate, { TableCardFooterTemplate } from '../../../templates/common/TableParts.template';
-import { useStudents } from '../../../api/students.api';
 import { StudentList } from '../../../types/administrative/Student';
 import { capitalizeFirstLetter } from '../../../utils/getCapitalize';
 import Modal, { ModalBody, ModalFooter, ModalHeader } from '../../../components/ui/Modal';
+import { useStudents } from '../services/students.api';
 
 function StudentTable() {
   const [sorting, setSorting] = useState<SortingState>([]);

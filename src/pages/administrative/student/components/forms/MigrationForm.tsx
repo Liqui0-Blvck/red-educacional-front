@@ -8,7 +8,7 @@ import Validation from '../../../../../components/form/Validation';
 import Button from '../../../../../components/ui/Button';
 import SelectReact from '../../../../../components/form/SelectReact';
 import { MigrationRecord, Student } from '../../../../../types/administrative/Student';
-import { useUpdateMigrationInfo } from '../../../../../api/students.api';
+import { useUpdateMigrationInfo } from '../../../services/students.api';
 
 const boolean_options = [
   { value: true, label: 'Sí' },
