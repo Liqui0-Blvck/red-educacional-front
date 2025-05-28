@@ -1,202 +1,120 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/42118bfb-c41b-4015-9ae8-cf2c725a6dd2/deploy-status)](https://app.netlify.com/sites/fyr-react/deploys)
+# Red Educacional - Plataforma de Gestión Educativa
 
-# Fyr | React TypeScript Tailwind Admin & AI Chat Template
+## Descripción
 
-[![Fyr | React TypeScript Tailwind Admin & AI Chat Template](./src/assets/Cover.png)](https://fyr.omtanke.studio)
+Red Educacional es una plataforma web integral diseñada para facilitar la gestión académica y administrativa de instituciones educativas. Proporciona un entorno digital completo que conecta a estudiantes, profesores, administrativos y apoderados, optimizando los procesos educativos y mejorando la comunicación entre todos los actores del ecosistema escolar.
 
-# Getting Started with Vite
+## Características Principales
 
-This project was bootstrapped with [Vite](https://github.com/vitejs/vite) and [TailwindCSS](https://github.com/tailwindlabs/tailwindcss).
+### Gestión Académica
+- **Administración de Cursos**: Visualización y gestión de cursos, grados y secciones.
+- **Seguimiento de Estudiantes**: Control de asistencia, calificaciones y rendimiento académico.
+- **Gestión de Profesores**: Asignación de profesores jefe y docentes por asignatura.
 
-## Install Dependencies
+### Administración Escolar
+- **Gestión de Matrículas**: Proceso de inscripción y renovación de matrículas.
+- **Calendario Escolar**: Organización de eventos, evaluaciones y actividades académicas.
+- **Reportes y Estadísticas**: Generación de informes para análisis y toma de decisiones.
 
-### `npm install` or `yarn install`
+### Comunicación
+- **Mensajería Interna**: Sistema de comunicación entre profesores, estudiantes y apoderados.
+- **Notificaciones**: Alertas sobre eventos importantes, reuniones y fechas clave.
 
-## Available Scripts
+### Herramientas de Aprendizaje
+- **Recursos Digitales**: Biblioteca de materiales educativos.
+- **Asistencia con IA**: Herramientas de inteligencia artificial para apoyo educativo.
 
-In the project directory, you can run:
+## Tecnologías Utilizadas
 
-### `npm run dev` or `yarn dev`
+- **Frontend**: React, TypeScript, TailwindCSS
+- **Desarrollo**: Vite
+- **UI/UX**: Componentes personalizados, diseño responsivo
+- **Gráficos y Visualización**: ApexCharts
+- **Gestión de Estado**: React Query
 
-Runs the app in the development mode.\
-Open [http://localhost:5174](http://localhost:5174) to view it in the browser.
+## Instalación y Configuración
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Requisitos Previos
+- Node.js (versión recomendada: 16.x o superior)
+- npm o yarn
 
-### `npm run build` or `yarn build`
+### Instalación
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+# Clonar el repositorio
+git clone [URL_DEL_REPOSITORIO]
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Ingresar al directorio del proyecto
+cd red-educacional-front
 
-### `npm run lint` or `yarn run lint`
-
-Controls the project according to Eslint rules.
-
-### `npm run lint:fix` or `yarn run lint:fix`
-
-Inspects the project according to Eslint rules and corrects them according to those rules.
-
-### `npm run prettier:fix` or `yarn run prettier:fix`
-
-Inspects the project according to Prettier rules and corrects them according to those rules.
-
-### `npm run icon` or `yarn run icon`
-
-Prepares svg format icons in the `SvgIcons` folder for use in the project. Names the icon's name in `PascalCase` format.
-
-## Learn More
-
-You can learn more in the [Vite React documentation](https://vitejs.dev/guide/).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-# Project Structure
-
-```
-fyr
-├── public
-├── src
-│   ├── App
-│   ├── assets
-│   ├── components
-│   ├── config
-│   │   ├── pages.config.ts
-│   │   └── theme.config.ts
-│   ├── constants
-│   ├── context
-│   ├── hooks
-│   ├── interface
-│   ├── locales
-│   ├── mocks
-│   ├── pages
-│   ├── routes
-│   │   ├── asideRoutes.tsx
-│   │   ├── contentRoutes.tsx
-│   │   ├── footerRoutes.tsx
-│   │   └── headerRoutes.tsx
-│   ├── styles
-│   ├── templates
-│   ├── types
-│   ├── utils
-│   ├── declaration.d.ts
-│   ├── i18n.ts
-│   ├── index.tsx
-│   ├── react-app-env.d.ts
-│   ├── reportWebVitals.ts
-│   └── setupTests.ts
-├── SvgIcons
-├── .eslintignore
-├── .eslintrc.json
-├── .gitattributes
-├── .gitignore
-├── .npmrc
-├── .prettierignore
-├── .svgrc
-├── index.html
-├── package.json
-├── postcss.config.js
-├── prettier.config.js
-├── README.md
-├── tailwind.config.js
-├── tsconfig.eslint.json
-├── tsconfig.json
-├── tsconfig.node.json
-└── vite.config.ts
+# Instalar dependencias
+npm install
+# o
+yarn install
 ```
 
-# Tailwind Configure
+### Ejecución en Desarrollo
 
-There are 22 colors defined in Tailwind, we have added 8 (zinc `#71717a`, red `#ef4444`, amber `#f59e0b`, lime `#84cc16`, emerald `#10b981`, sky `#0ea5e9`, blue `#3b82f6`, violet `#8b5cf6`) of them for the components of Fyr. If you wish, you can activate other colors or define new colors.
-
-You can add new values to "TColors" in the [src/types/colors.type.ts](src/types/colors.type.ts) file for use in the project and don't forget to add them to the [safelist](https://tailwindcss.com/docs/content-configuration#safelisting-classes).
-
-# Theme Configure
-
-You can edit the theme's settings in the [src/config/theme.config.ts](src/config/theme.config.ts) file.
-
-# Pages Configure
-
-```tsx
-export const examplePages = {
-	parentPage: {
-		id: 'parentPage',
-		to: '/parent-page',
-		text: 'Parent Page',
-		icon: 'HeroBookOpen',
-		subPages: {
-			childPage1: {
-				id: 'childPage',
-				to: '/parent-page/child-page',
-				text: 'Child Page',
-				icon: 'HeroBookOpen',
-			},
-			childPage2: {
-				id: 'childPage2',
-				to: '/parent-page/child-page-2',
-				text: 'Child Page 2',
-				icon: 'HeroBookOpen',
-			},
-		},
-	},
-};
+```bash
+# Iniciar servidor de desarrollo
+npm run dev
+# o
+yarn dev
 ```
 
-If you save your page information in the above format in the [src/config/pages.config.ts](src/config/pages.config.ts) file, you can easily use it in the menus.
+La aplicación estará disponible en [http://localhost:5174](http://localhost:5174)
 
-# Architecture of the project
+### Compilación para Producción
 
-## src/index.tsx
-
-```tsx
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
-root.render(
-	<React.StrictMode>
-		<ThemeContextProvider>
-			<BrowserRouter>
-				<AuthProvider>
-					<App />
-				</AuthProvider>
-			</BrowserRouter>
-		</ThemeContextProvider>
-	</React.StrictMode>,
-);
+```bash
+# Construir la aplicación para producción
+npm run build
+# o
+yarn build
 ```
 
-### src/App/App.tsx
+## Estructura del Proyecto
 
-```tsx
-return (
-	<div data-component-name='App' className='flex grow flex-col'>
-		<AsideRouter />
-		<Wrapper>
-			<HeaderRouter />
-			<ContentRouter />
-			<FooterRouter />
-		</Wrapper>
-	</div>
-);
+```
+red-educacional-front
+├── public            # Archivos públicos y estáticos
+├── src               # Código fuente
+│   ├── App           # Componente principal de la aplicación
+│   ├── api           # Servicios y llamadas a API
+│   ├── assets        # Recursos estáticos (imágenes, fuentes, etc.)
+│   ├── components    # Componentes reutilizables
+│   ├── config        # Configuraciones de la aplicación
+│   ├── context       # Contextos de React
+│   ├── hooks         # Hooks personalizados
+│   ├── pages         # Páginas de la aplicación
+│   │   ├── academic  # Módulo académico
+│   │   ├── administrative # Módulo administrativo
+│   │   └── ai        # Herramientas de IA
+│   ├── routes        # Configuración de rutas
+│   ├── styles        # Estilos globales
+│   ├── types         # Definiciones de tipos TypeScript
+│   └── utils         # Utilidades y funciones auxiliares
+├── SvgIcons          # Iconos SVG para la aplicación
+└── [Archivos de configuración] # Configuraciones de herramientas y entorno
 ```
 
-#### src/components/router/AsideRouter.tsx
+## Contribución
 
-If you do not want to customize the project in this file, you do not need to make any changes. In this component, only [src/routes/asideRoutes.tsx](src/routes/asideRoutes.tsx) file sets which component will be shown in which path.
+Para contribuir al proyecto, por favor sigue estos pasos:
 
-```tsx
-const asideRoutes: RouteProps[] = [
-	{ path: authPages.loginPage.to, element: null },
-	{ path: '*', element: <DefaultAsideTemplate /> },
-];
-```
+1. Crea un fork del repositorio
+2. Crea una rama para tu funcionalidad (`git checkout -b feature/nueva-funcionalidad`)
+3. Realiza tus cambios y haz commit (`git commit -m 'Añadir nueva funcionalidad'`)
+4. Sube tus cambios (`git push origin feature/nueva-funcionalidad`)
+5. Abre un Pull Request
 
-You can set the "Aside Templates" to be displayed on the paths you want. If you don't want any "Aside" in a path, you can set the element to `null`.
+## Licencia
 
-#### src/components/router/HeaderRouter.tsx
+Este proyecto está licenciado bajo [Especificar licencia]
 
-If you do not want to customize the project in this file, you do not need to make any changes. In this component, only [src/routes/headerRoutes.tsx](src/routes/headerRoutes.tsx) file sets which component will be shown in which path.
+## Contacto
+
+Para más información o soporte, contacta a [información de contacto]
 
 ```tsx
 const headerRoutes: RouteProps[] = [
